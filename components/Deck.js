@@ -23,10 +23,7 @@ class Deck extends React.Component {
 
   render() {
 
-    const counter = Object.keys(questions).reduce((total, id) => {
-      if (questions[id].deckId === deckId) total = total + 1;
-      return total;
-    }, 0);
+  
 
     const { deckName, count, questions } = this.props.deck;
     const activeButton = count === 0 ? true : false;

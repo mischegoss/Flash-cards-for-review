@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 
 
 const Item = (props) => {
-  const { item, handleNav } = props;
+  const { item, handleNav, count } = props;
   
  
   
@@ -25,7 +25,7 @@ const Item = (props) => {
         </Text>
         <Right>
         <Text> 
-          {item.count}
+          {props.count}
         </Text>
         </Right>
 
