@@ -17,6 +17,7 @@ export function formatQuestion(deck) {
   return {
     id: generateUID(),
     ...deck,
+    
   };
 }
 

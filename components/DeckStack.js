@@ -13,7 +13,8 @@ import { connect } from 'react-redux';
 
 const Item = (props) => {
   const { item, handleNav } = props;
-
+  
+ 
   
   return (
 
@@ -23,7 +24,8 @@ const Item = (props) => {
       <Text> {item.deckName}
         </Text>
         <Right>
-        <Text> {item.count}
+        <Text> 
+          {item.count}
         </Text>
         </Right>
 
@@ -39,7 +41,7 @@ class DeckStack extends React.Component {
 
   render() {
 
-    
+
     
     return (
       <SafeAreaView >
@@ -71,22 +73,19 @@ class DeckStack extends React.Component {
 
 
 
-function mapStateToProps({ decks, questions }, { route }){
-
+function mapStateToProps({ decks, questions, deckId }, { route }){
+  
   const decksArray = [];
-  const deckQuestions = [];
-
+ 
   for (const key of Object.keys(decks)) {
     decksArray.push(decks[key]);
   }
 
-  for (const key of Object.keys(questions)) {
-    deckQuestions.push(questions[key])
-  }
+  
 
   return {
     data: decksArray,
-    questions: deckQuestions,
+    
   };
 }
 

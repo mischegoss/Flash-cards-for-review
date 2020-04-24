@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 class Deck extends React.Component {
   handleAddCard = () => {
     const { deck } = this.props;
+   
 
     this.props.navigation.navigate('AddCard', { deckId: deck.id });
   };
@@ -16,9 +17,22 @@ class Deck extends React.Component {
     this.props.navigation.navigate('Quiz', { deckId: deck.id });
   };
 
+  
+  
+
+
   render() {
-    const { deckName, count } = this.props.deck;
+
+    const counter = Object.keys(questions).reduce((total, id) => {
+      if (questions[id].deckId === deckId) total = total + 1;
+      return total;
+    }, 0);
+
+    const { deckName, count, questions } = this.props.deck;
     const activeButton = count === 0 ? true : false;
+
+   
+   
 
     return (
 
@@ -65,22 +79,19 @@ class Deck extends React.Component {
 
     )}}
 
+    
 
-
-
-      
-
-function mapStateToProps({ decks, questions }, { route }) {
-  const { deckId } = route.params;
-  let count = 0;
-
-  for (const key of Object.keys(questions)) {
-    if (questions[key].deckId === deckId) count = count++;
-  }
-
-  return {
-    deck: decks[deckId] ? { ...decks[deckId], count } : null,
-  };
-}
-
-export default connect(mapStateToProps)(Deck);
+    function mapStateToProps({ decks, questions }, { route }) {
+      const { deckId } = route.params;
+      let count = 0;
+    
+      for (const key of Object.keys(questions)) {
+        if (questions[key].deckId === deckId) count++;
+      }
+    
+      return {
+        deck: decks[deckId] ? { ...decks[deckId], count } : null,
+      };
+    }
+    
+    export default connect(mapStateToProps)(Deck);
