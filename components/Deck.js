@@ -25,7 +25,7 @@ class Deck extends React.Component {
 
   
 
-    const { deckName, count, questions } = this.props.deck;
+    const { deckName, count } = this.props.deck;
     const activeButton = count === 0 ? true : false;
 
    
@@ -80,7 +80,7 @@ class Deck extends React.Component {
 
     function mapStateToProps({ decks, questions }, { route }) {
       const { deckId } = route.params;
-      let count = 0;
+      let count = 1;
     
       for (const key of Object.keys(questions)) {
         if (questions[key].deckId === deckId) count++;

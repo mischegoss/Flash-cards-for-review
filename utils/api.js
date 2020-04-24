@@ -9,7 +9,7 @@ export function formatDeck(deckName) {
   return {
     id: generateUID(),
     deckName,
-    count: 0,
+    count: 1,
   };
 }
 
@@ -17,8 +17,16 @@ export function formatQuestion(deck) {
   return {
     id: generateUID(),
     ...deck,
-    
   };
+}
+
+export function saveCardToStorage(card) {
+  return AsyncStorage.mergeItem(
+    FLASHCARDS_STORAGE_QUESTIONS_KEY,
+    JSON.stringify({
+      [card.id]: card,
+    })
+  );
 }
 
 export function fetchQuizResults() {
@@ -47,15 +55,6 @@ export function saveDeckToStorage(deck) {
     FLASHCARDS_STORAGE_DECKS_KEY,
     JSON.stringify({
       [deck.id]: deck,
-    })
-  );
-}
-
-export function saveCardToStorage(card) {
-  return AsyncStorage.mergeItem(
-    FLASHCARDS_STORAGE_QUESTIONS_KEY,
-    JSON.stringify({
-      [card.id]: card,
     })
   );
 }
