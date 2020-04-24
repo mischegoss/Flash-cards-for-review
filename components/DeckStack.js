@@ -1,11 +1,12 @@
 import React from 'react';
 import {
   SafeAreaView,
-  View,
+  
   FlatList,
-  Text,
-  TouchableOpacity,
+ 
 } from 'react-native';
+
+import {Button, Text, Right, Container, ListItem} from 'native-base'
 
 import { connect } from 'react-redux';
 
@@ -15,14 +16,22 @@ const Item = (props) => {
   const {questions} = props;
 
   return (
-    <TouchableOpacity onPress={() => handleNav(item.id)}>
-      <View >
-        <Text> {item.deckName}
+
+    <Button
+    style={{borderWidth:  3,  borderColor:  'red'}}
+    full success onPress={() => handleNav(item.id)}>
+      <Text> {item.deckName}
         </Text>
+        <Right>
         <Text> Count
         </Text>
-      </View>
-    </TouchableOpacity>
+        </Right>
+
+    </Button>
+
+
+
+    
   );
 };
 
