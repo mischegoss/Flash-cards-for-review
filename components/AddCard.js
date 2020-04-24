@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { View} from 'react-native';
 import { connect } from 'react-redux';
 import { addDeckQuestion} from '../actions';
 import { formatQuestion, saveCardToStorage} from '../utils/api';
-import { Card, Button, TextInput } from 'react-native-paper';
+import { Container, Button, Content, Header, Item, Input, Text } from 'native-base';
 
 class AddCard extends React.Component {
   state = {
@@ -15,7 +14,6 @@ class AddCard extends React.Component {
 
   handleSubmit = () => {
     const { deckId } = this.props.route.params;
-    
 
  
     const { dispatch, navigation } = this.props;
@@ -38,26 +36,39 @@ class AddCard extends React.Component {
   };
 
   render() {
-    const { questionText, answerText } = this.state;
+    
 
     return (
-      <View >
-        <Card>
-          <TextInput
-            label='Question'
-            value={this.state.questionText}
-            onChangeText={(text) => this.setState({ questionText: text })}
-          />
-          <TextInput
-            label='Answer'
-            value={this.state.answerText}
-            onChangeText={(text) => this.setState({ answerText: text })}
-          />
-        </Card>
-        <Button onPress={this.handleSubmit} color='black' mode='outlined'>
-          Submit
+
+      <Container>
+      <Header />
+      <Content>
+        <Item rounded>
+          <Input placeholder='Question'
+          value={this.state.questionText}
+          onChangeText={(text) => this.setState({ questionText: text })}
+        />
+        </Item>
+
+        <Item rounded>
+          <Input placeholder='Answer'
+          value={this.state.answerText}
+          onChangeText={(text) => this.setState({ answerText: text })}
+        />
+        </Item>
+
+        <Button onPress={this.handleSubmit} >
+          <Text>Submit</Text>
         </Button>
-      </View>
+      </Content>
+    </Container>
+
+
+
+
+
+
+      
     );
   }
 }
