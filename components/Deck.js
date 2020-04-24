@@ -72,7 +72,7 @@ class Deck extends React.Component {
 
 function mapStateToProps({ decks, questions }, { route }) {
   const { deckId } = route.params;
-  let count = 1;
+  let count = 0;
 
   for (const key of Object.keys(questions)) {
     if (questions[key].deckId === deckId) count = count++;

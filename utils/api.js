@@ -9,8 +9,7 @@ export function formatDeck(deckName) {
   return {
     id: generateUID(),
     deckName,
- 
-    
+    count: 0,
   };
 }
 
@@ -18,7 +17,6 @@ export function formatQuestion(deck) {
   return {
     id: generateUID(),
     ...deck,
-    count: 0,
   };
 }
 

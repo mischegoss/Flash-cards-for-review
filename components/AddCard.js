@@ -9,8 +9,12 @@ class AddCard extends React.Component {
     questionText: '',
     answerText: '',
     
+    
 
   };
+
+
+  
 
   handleSubmit = () => {
     const { deckId } = this.props.route.params;
@@ -62,12 +66,6 @@ class AddCard extends React.Component {
         </Button>
       </Content>
     </Container>
-
-
-
-
-
-
       
     );
   }

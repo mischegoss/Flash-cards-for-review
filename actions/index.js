@@ -13,7 +13,6 @@ export function addDeck(deck) {
   return {
     type: ADD_DECK,
     deck,
-    count: 0,
   };
 }
 
@@ -28,7 +27,5 @@ export function addDeckQuestion(question) {
   return {
     type: ADD_DECK_QUESTION,
     question,
-    
-  
   };
 }

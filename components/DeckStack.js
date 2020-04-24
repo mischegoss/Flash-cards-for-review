@@ -13,8 +13,8 @@ import { connect } from 'react-redux';
 
 const Item = (props) => {
   const { item, handleNav } = props;
-  const {questions} = props;
 
+  
   return (
 
     <Button
@@ -23,14 +23,11 @@ const Item = (props) => {
       <Text> {item.deckName}
         </Text>
         <Right>
-        <Text> Count
+        <Text> {item.count}
         </Text>
         </Right>
 
     </Button>
-
-
-
     
   );
 };
@@ -41,6 +38,8 @@ class DeckStack extends React.Component {
   };
 
   render() {
+
+    
     
     return (
       <SafeAreaView >
