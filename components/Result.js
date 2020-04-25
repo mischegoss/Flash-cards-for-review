@@ -37,7 +37,7 @@ export default class Result extends React.Component {
               </Text>  :
 
 <Text>
-No score yet
+Your score is zero. 
 </Text>  
 
               } 

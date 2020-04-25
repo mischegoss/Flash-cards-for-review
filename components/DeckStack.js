@@ -11,8 +11,9 @@ import {Button, Text, Right, Container, ListItem} from 'native-base'
 import { connect } from 'react-redux';
 
 
-const Item = (props) => {
+function Item(props) {
   const { item, handleNav } = props;
+  
   
   
  
@@ -26,7 +27,7 @@ const Item = (props) => {
         </Text>
         <Right>
         <Text> 
-          {item.count}
+       {item.count}
         </Text>
         </Right>
 
@@ -60,11 +61,9 @@ class DeckStack extends React.Component {
             keyExtractor={(item) => item.id}
           />
         ) : (
-          <Text
-            
-            
-          >
-            Nothing Here
+          <Text>
+         
+            Hey, you need to add a deck first. Get to work! 
           </Text>
         )}
       </SafeAreaView>
